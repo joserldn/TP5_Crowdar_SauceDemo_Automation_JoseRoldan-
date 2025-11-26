@@ -1,31 +1,28 @@
 package com.crowdar.examples.steps;
 
-import com.crowdar.core.PageSteps;
-import com.crowdar.core.actions.MobileActionManager;
-import com.crowdar.examples.constants.HomeConstants;
 import com.crowdar.examples.services.HomeService;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.*;
 
-/**
- * This class handles the steps in the features files and connects with the service in case of having business logic.
- * Otherwise, if it is a simple action, like clicking a button and it has nothing related to business logic, is correct to put here.
- */
-public class HomeSteps extends PageSteps {
+public class HomeSteps {
 
-    @Then("Home page is displayed")
-    public void isHomePageVisible() {
-        HomeService.isViewLoaded();
+    @Given("La aplicación se cargó correctamente")
+    public void cargarCorrectamente() {
+        HomeService.verificarHomeCargada();
     }
 
-    @When("The user changes the language")
-    public void doChangeLanguage() {
-        MobileActionManager.click(HomeConstants.CHANGE_LANGUAGE_BUTTON_LOCATOR);
+    @Given("La pantalla Home se muestra")
+    public void pantallaHome() {
+        HomeService.verificarHomeCargada();
     }
 
-    @When("The user log out of the app")
-    public void doSignOut() {
-        MobileActionManager.click(HomeConstants.SIGN_OUT_BUTTON_LOCATOR);
+    @Then("El producto {string} se muestra en pantalla")
+    public void productoVisible(String producto) {
+        HomeService.verificarProductoVisible(producto);
     }
 
+    @When("El usuario toca el producto numero {string}")
+    public void elUsuarioTocaElProductoNumero(String indexStr) {
+        int index = Integer.parseInt(indexStr);
+        HomeService.tapProductByIndex(index);
+    }
 }

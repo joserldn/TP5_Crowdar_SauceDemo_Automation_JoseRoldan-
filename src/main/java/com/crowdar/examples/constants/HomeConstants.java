@@ -2,10 +2,23 @@ package com.crowdar.examples.constants;
 
 public class HomeConstants {
 
-    public static final String SIGN_OUT_BUTTON_LOCATOR = "ACCESSIBILITY_ID:signOutButtonHome";
-    public static final String CHANGE_LANGUAGE_BUTTON_LOCATOR = "ACCESSIBILITY_ID:changeLanguageButtonHome";
-    public static final String CAMERA_BUTTON_LOCATOR = "ACCESSIBILITY_ID:cameraButtonHome";
-    public static final String PHONE_INPUT_LOCATOR = "ACCESSIBILITY_ID:phoneInputHome";
+    // Título principal que aparece al cargar la Home
+    public static final String HEADER_TITLE =
+            "id:com.saucelabs.mydemoapp.android:id/productTV";
 
-    public static final String VIEW_NOT_DISPLAYED_MESSAGE = "Home page is not displayed.";
+    // Plantilla del título del producto (texto del item)
+    public static final String PRODUCT_TITLE =
+            "xpath://android.widget.TextView[@text='%s']";
+
+    public static final String ADD_TO_CART_BUTTON = "id:com.saucelabs.mydemoapp.android:id/cartBt";
+
+    // Botón del carrito en la barra superior
+    public static final String CART_BUTTON =
+            "id:com.saucelabs.mydemoapp.android:id/cartIV";
+
+    // Imagen del producto (en la Home)
+    public static final String PRODUCT_IMAGE = "xpath:(//android.widget.ImageView[@content-desc=\"Product Image\"])[%s]";
+
+    public static final String PRODUCT_DETAIL_TITLE = "id:com.saucelabs.mydemoapp.android:id/productTV";
+
 }
